@@ -272,6 +272,10 @@ public class MappedFile extends ReferenceResource {
     }
 
     /**
+     * note by river
+     * flush 的意思是把 channel 的东西刷盘
+     */
+    /**
      * @return The current flushed position
      */
     public int flush(final int flushLeastPages) {
@@ -300,6 +304,11 @@ public class MappedFile extends ReferenceResource {
         return this.getFlushedPosition();
     }
 
+    /**
+     * note by river
+     * commit 的含义是把 buffer 里的内容 commit 到 channel
+     *
+     */
     public int commit(final int commitLeastPages) {
         if (writeBuffer == null) {
             //no need to commit data to file channel, so just regard wrotePosition as committedPosition.
